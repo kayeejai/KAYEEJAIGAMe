@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>KAYEEJAI GAME ARENA</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="auth-gate" id="authGate">
+    <div class="auth-card">
+      <div class="auth-logo">KAYEEJAI <span>ARENA</span></div>
+      <div id="authLoginView">
+        <div class="auth-kicker">WELCOME BACK</div>
+        <h1>LOGIN</h1>
+        <p class="auth-sub">เข้าสู่ระบบเพื่อเล่น KAYEEJAI GAME ARENA</p>
+        <button class="btn google-btn full" id="googleLoginButton" type="button">G  CONTINUE WITH GOOGLE</button>
+        <div class="auth-or"><span>OR</span></div>
+        <label>EMAIL</label>
+        <input id="loginEmail" type="email" autocomplete="email" placeholder="you@example.com">
+        <label>PASSWORD</label>
+        <input id="loginPassword" type="password" autocomplete="current-password" placeholder="••••••••">
+        <button class="btn primary full auth-main-btn" id="emailLoginButton" type="button">LOGIN</button>
+        <button class="auth-switch" id="showRegisterButton" type="button">ยังไม่มีบัญชี? <b>REGISTER</b></button>
+      </div>
+
+      <div id="authRegisterView" class="hidden">
+        <div class="auth-kicker">NEW PLAYER</div>
+        <h1>REGISTER</h1>
+        <p class="auth-sub">สร้างบัญชีครั้งเดียว แล้วใช้เล่นได้ทุกอุปกรณ์</p>
+        <label>PLAYER NAME</label>
+        <input id="registerName" maxlength="20" autocomplete="nickname" placeholder="ชื่อผู้เล่น">
+        <label>EMAIL</label>
+        <input id="registerEmail" type="email" autocomplete="email" placeholder="you@example.com">
+        <label>PASSWORD</label>
+        <input id="registerPassword" type="password" autocomplete="new-password" placeholder="อย่างน้อย 6 ตัวอักษร">
+        <button class="btn primary full auth-main-btn" id="emailRegisterButton" type="button">CREATE ACCOUNT</button>
+        <button class="auth-switch" id="showLoginButton" type="button">มีบัญชีแล้ว? <b>LOGIN</b></button>
+      </div>
+
+      <div id="authNameView" class="hidden">
+        <div class="auth-kicker">ONE MORE STEP</div>
+        <h1>PLAYER NAME</h1>
+        <p class="auth-sub">ตั้งชื่อที่จะแสดงในห้องและ Leaderboard</p>
+        <input id="authNameInput" maxlength="20" autocomplete="nickname" placeholder="ชื่อผู้เล่น">
+        <button class="btn primary full auth-main-btn" id="saveAuthNameButton" type="button">CONTINUE</button>
+      </div>
+
+      <div class="auth-error" id="authMessage" aria-live="polite"></div>
+    </div>
+  </div>
+  <nav class="navbar">
+    <div class="nav-inner">
+      <button class="brand" id="brandButton" type="button">KAYEEJAI <span>ARENA</span></button>
+      <button class="menu-button" id="menuButton" type="button" aria-label="เปิดเมนู">☰</button>
+      <div class="nav-links" id="desktopNav">
+        <button type="button" data-page="home">HOME</button>
+        <button type="button" data-page="arena">GAME ARENA</button>
+        <button type="button" data-page="leaderboard">LEADERBOARD</button>
+        <button type="button" data-page="profile">PROFILE</button>
+        <button type="button" data-page="updates">UPDATES</button>
+      </div>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <button type="button" data-page="home">HOME</button>
+      <button type="button" data-page="arena">GAME ARENA</button>
+      <button type="button" data-page="leaderboard">LEADERBOARD</button>
+      <button type="button" data-page="profile">PROFILE</button>
+      <button type="button" data-page="updates">UPDATES</button>
+    </div>
+  </nav>
+
+  <main>
+    <section class="page active" id="page-home">
+      <div class="hero">
+        <div class="hero-badge">KAYEEJAI</div>
+        <h1>GAME<br><span>ARENA</span></h1>
+        <p>สนามเกมแข่งขันแบบ Multiplayer<br>รวมหลายเกมไว้ในห้องเดียว</p>
+        <div class="hero-actions">
+          <button class="btn primary" id="heroPlayButton" type="button">PLAY NOW</button>
+          <button class="btn secondary" id="heroHowButton" type="button">HOW TO PLAY</button>
+        </div>
+      </div>
+
+      <div class="home-section">
+        <div class="section-title">
+          <small>WELCOME TO</small>
+          <h2>KAYEEJAI GAME ARENA</h2>
+        </div>
+        <div class="feature-grid">
+          <div class="feature"><b>👥</b><h3>PLAY TOGETHER</h3><p>สร้างห้องแล้วชวนเพื่อนเข้ามาเล่นพร้อมกัน</p></div>
+          <div class="feature"><b>🏆</b><h3>COMPETE</h3><p>เก็บคะแนนจากหลายเกมเพื่อไต่อันดับ</p></div>
+          <div class="feature"><b>⚡</b><h3>SKILL MATTERS</h3><p>เกมเน้นทักษะและการตัดสินใจ</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="page" id="page-arena">
+      <div class="page-head">
+        <small>KAYEEJAI</small>
+        <h2>GAME ARENA</h2>
+        <p>สร้างห้อง หรือเข้าร่วมห้องของเพื่อน</p>
+      </div>
+
+      <div class="room-panel" id="roomPanel">
+        <div class="player-name-box">
+          <div>
+            <h3>PLAYER NAME</h3>
+            <p>ใส่ชื่อของคุณก่อนสร้างหรือเข้าห้อง</p>
+          </div>
+          <div class="player-name-row">
+            <input id="playerNameInput" maxlength="20" autocomplete="nickname" placeholder="ชื่อผู้เล่น">
+            <button class="btn secondary" id="savePlayerNameButton" type="button">SAVE</button>
+          </div>
+          <div class="saved-name" id="savedNameText"></div>
+        </div>
+        <div class="room-actions">
+          <div class="room-create">
+            <h3>CREATE ROOM</h3>
+            <p>สร้างห้องใหม่แล้วเป็น Host</p>
+            <button class="btn primary full" id="createRoomButton" type="button">CREATE ROOM</button>
+          </div>
+          <div class="divider"><span>OR</span></div>
+          <div class="room-join">
+            <h3>JOIN ROOM</h3>
+            <p>ใส่รหัสห้อง 6 ตัว</p>
+            <input id="roomCodeInput" maxlength="6" autocomplete="off" placeholder="ABC123">
+            <button class="btn secondary full" id="joinRoomButton" type="button">JOIN ROOM</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="arena-stats">
+        <div><strong>5</strong><span>GAMES</span></div>
+        <div><strong>50</strong><span>MAX PLAYERS</span></div>
+        <div><strong>800</strong><span>MAX SCORE</span></div>
+      </div>
+
+      <div class="section-title compact">
+        <small>CHOOSE YOUR GAME</small>
+        <h2>MINI GAMES</h2>
+      </div>
+
+      <div class="game-grid">
+        <article class="game-card active-game">
+          <div class="game-icon">🃏</div>
+          <div class="game-number">ROUND 1</div>
+          <h3>MEMORY MATCH</h3>
+          <p>เปิดไพ่หาคู่ให้ครบภายในเวลาที่กำหนด</p>
+          <div class="game-meta"><span>⏱ 40 SEC</span><span>MAX 150</span></div>
+          <button class="btn primary full" id="playMemoryButton" type="button">PLAY GAME</button>
+        </article>
+
+        <article class="game-card">
+          <div class="game-icon">🦅</div>
+          <div class="game-number">ROUND 2</div>
+          <h3>AIM BATTLE</h3>
+          <p>ยิงเป้าที่เคลื่อนที่ผ่านหน้าจอ</p>
+          <div class="game-meta"><span>⏱ 15 SEC</span><span>MAX 100</span></div>
+          <button class="btn disabled full" type="button" disabled>COMING SOON</button>
+        </article>
+
+        <article class="game-card">
+          <div class="game-icon">🔢</div>
+          <div class="game-number">ROUND 3</div>
+          <h3>NUMBER HUNT</h3>
+          <p>ค้นหาตัวเลขตามโจทย์ให้เร็วที่สุด</p>
+          <div class="game-meta"><span>SKILL</span><span>MAX 150</span></div>
+          <button class="btn disabled full" type="button" disabled>COMING SOON</button>
+        </article>
+
+        <article class="game-card">
+          <div class="game-icon">🧩</div>
+          <div class="game-number">ROUND 4</div>
+          <h3>PUZZLE RACE</h3>
+          <p>แก้โจทย์และแข่งกับเวลา</p>
+          <div class="game-meta"><span>SKILL</span><span>MAX 200</span></div>
+          <button class="btn disabled full" type="button" disabled>COMING SOON</button>
+        </article>
+
+        <article class="game-card final-card">
+          <div class="game-icon">🏁</div>
+          <div class="game-number">FINAL</div>
+          <h3>FINAL RACE</h3>
+          <p>ด่านสุดท้าย คะแนนสูงสุด</p>
+          <div class="game-meta"><span>FINAL</span><span>MAX 250</span></div>
+          <button class="btn disabled full" type="button" disabled>COMING SOON</button>
+        </article>
+      </div>
+
+      <div class="lobby-screen hidden" id="lobbyScreen">
+        <div class="lobby-top">
+          <div>
+            <small>ROOM CODE</small>
+            <div class="room-code-display" id="roomCodeDisplay">------</div>
+          </div>
+          <button class="copy-btn" id="copyRoomButton" type="button">COPY</button>
+        </div>
+        <div class="lobby-status" id="lobbyStatus">รอผู้เล่นเข้าห้อง...</div>
+        <div class="player-list" id="playerList"></div>
+        <div class="lobby-buttons">
+          <button class="btn secondary" id="readyButton" type="button">READY</button>
+          <button class="btn primary" id="hostStartButton" type="button">START GAME</button>
+          <button class="btn danger" id="leaveRoomButton" type="button">LEAVE</button>
+        </div>
+      </div>
+
+      <div class="game-screen hidden" id="gameScreen">
+        <div class="game-intro">
+          <small id="roundLabel">ROUND 1</small>
+          <h2>MEMORY MATCH</h2>
+          <p>เตรียมตัวให้พร้อม แล้วหาคู่ให้ครบ</p>
+          <button class="btn primary" id="startMemoryRoundButton" type="button">START MEMORY MATCH</button>
+          <button class="btn secondary" id="backToLobbyButton" type="button">BACK TO LOBBY</button>
+        </div>
+      </div>
+
+      <div class="memory-game-screen hidden" id="memoryGameScreen">
+        <div class="memory-header">
+          <div><small>ROUND 1</small><h2>MEMORY MATCH</h2></div>
+          <button class="btn secondary small-btn" id="exitMemoryButton" type="button">EXIT</button>
+        </div>
+        <div class="memory-info">
+          <div><span>TIME</span><strong id="memoryTime">40</strong></div>
+          <div><span>SCORE</span><strong id="memoryScore">0</strong></div>
+          <div><span>PAIRS</span><strong id="memoryPairs">0/8</strong></div>
+        </div>
+        <div class="memory-board" id="memoryBoard"></div>
+        <div class="memory-message" id="memoryMessage">หาคู่ให้ครบ!</div>
+      </div>
+    </section>
+
+    <section class="page" id="page-leaderboard">
+      <div class="simple-page">
+        <small>RANKING</small>
+        <h2>LEADERBOARD</h2>
+        <p>อันดับรวมจะแสดงที่นี่เมื่อระบบคะแนนออนไลน์พร้อมใช้งาน</p>
+        <div class="placeholder-list">
+          <div><b>01</b><span>—</span><strong>---</strong></div>
+          <div><b>02</b><span>—</span><strong>---</strong></div>
+          <div><b>03</b><span>—</span><strong>---</strong></div>
+          <div><b>04</b><span>—</span><strong>---</strong></div>
+          <div><b>05</b><span>—</span><strong>---</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="page" id="page-profile">
+      <div class="simple-page">
+        <small>PLAYER</small>
+        <h2>PROFILE</h2>
+        <p>โปรไฟล์ผู้เล่นจะถูกเพิ่มในขั้นต่อไป</p>
+      </div>
+    </section>
+
+    <section class="page" id="page-updates">
+      <div class="simple-page">
+        <small>NEWS</small>
+        <h2>UPDATES</h2>
+        <p>พื้นที่สำหรับประกาศเกม ด่านใหม่ และกิจกรรมของ KAYEEJAI</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div>KAYEEJAI GAME ARENA</div>
+    <small>PLAY • COMPETE • HAVE FUN</small>
+  </footer>
+
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
